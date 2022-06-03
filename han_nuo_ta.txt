@@ -2,6 +2,6 @@ def move(n,a,b,c):
     if n==1://如果n=1,直接a到c
         print(a,'-->',c)
     else:
-        move(n-1,a,c,b)
-        move(1,a,b,c)
-        move(n-1,b,a,c)
+        move(n-1,a,c,b)//当n>1，视为1个最大的圆盘和剩余n-1个圆盘当一个整体移动，n-1个以整体移动到b
+        move(1,a,b,c)//剩下那个最大的移动到c
+        move(n-1,b,a,c)//n-1个变成新的问题：如何将n-1个从b移动到c(递归即可)
