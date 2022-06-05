@@ -1,0 +1,32 @@
+#斐波拉契数列
+'''
+def fib(max):
+    n,a,b=0,0,1
+    while n<max:
+        print(b)
+        a,b=b,a+b
+        n=n+1
+    return 'done'
+'''
+#将上面的函数变为generator,用的是定义generator的另一种方法，如果一
+#个函数中包含yield关键字，就不再是一个简单的函数了，而是一个generator函数
+def fib(max):
+    n,a,b=0,0,1
+    while n<max:
+        yield b
+        a,b=b,a+b
+        n=n+1
+    return 'done'
+
+'''
+g=fib(6)
+while True:
+    try:
+        x=next(g)
+        print('g:',x)
+    except StopIteration as e:
+#这里e是前面StopIteratio类的一个instance,我们可以直接访问它的value即e.value
+        print('Generator:',e.value)
+        break
+'''
+
