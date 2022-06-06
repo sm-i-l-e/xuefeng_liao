@@ -1,0 +1,22 @@
+'''
+def tirangles():
+    L=[1]
+    while True:
+        yield L
+        L=[1]+[L[n]+L[n+1] for n in range(len(L)-1)] + [1]
+'''
+def triangles():
+    L1=[1]
+    L2=[1,1]
+    yield L1
+    L1=L2
+    yield L1
+    while True:
+        m=len(L1)
+        L=[1]
+        for i in range(m-1):
+            L.append(L1[i]+L1[i+1])
+        L.append(1)
+        yield L
+        L1=L
+    
