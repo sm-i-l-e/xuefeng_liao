@@ -1,0 +1,4 @@
+def prod(L):
+    def muls(x,y):
+        return x*y
+    return reduce(muls,L)
