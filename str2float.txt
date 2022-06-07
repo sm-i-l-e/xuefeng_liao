@@ -1,0 +1,11 @@
+from functools import reduce
+
+def str2float(s):
+    DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+    def str2int(s):
+        return DIGITS[s]
+    def mul(x,y):
+        return x*10+y
+    a=reduce(mul,map(str2int,s[0:3]))
+    b=reduce(mul,map(str2int,s[-3:]))
+    return a+b/1000
