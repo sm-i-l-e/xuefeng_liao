@@ -1,0 +1,19 @@
+如何构造出一个无穷数列，可以用生成器
+from tkinter import N
+
+
+def _odd_iter():
+    n=1
+    while True:
+        n=n+2
+        yield n 
+#清楚素数的构造，即除了2之外的偶数不可能是素数
+def _not_divisible(n):
+    return lambda x: x%n>0
+def primes():
+    yield 2
+    it=_odd_iter()
+    while True:
+        n=next(it)
+        yield n 
+        it=filter(_not_divisible(n),it)
