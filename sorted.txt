@@ -1,0 +1,3 @@
+def by_score(t):
+    print(sorted(students, key=itemgetter(0)))
+    print(sorted(students, key=lambda t: t[1]))
